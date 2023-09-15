@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+bool sortrotate(int arr[], int n) {
+    int count = 0;           //this is for both  sorted and rotated condition
+    for (int i = 1; i < n; i++) {
+        if (arr[i - 1] > arr[i]) {
+            count++;
+        }
+    }
+    if (arr[n - 1] > arr[0]) {  //this is for already sorted but not rotated arra  {1,2,3,4,5}
+        count++;  //
+    }
+    return count <= 1;  // < symbol used for {1,1,1} condition
+}
+
+int main() {
+    int arr[5] = {3, 4, 5, 1, 2};
+    bool result = sortrotate(arr, 5);
+    if (result) {
+        cout << "The array is sorted in a rotated manner." << endl;
+    } else {
+        cout << "The array is not sorted in a rotated manner." << endl;
+    }
+    return 0;
+}
